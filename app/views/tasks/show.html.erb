@@ -1,0 +1,14 @@
+<div class="justify-content-center">
+  <div class="d-flex p-3 m-3">
+    <h3><%= @task.title %></h3>
+    <%= link_to 'Edit', edit_path, class: "btn btn-outline-secondary" %>
+  </div>
+  <h5><%= @task.details %></h5>
+  <% if @task.completed %>
+  <p>✔️ Task completed!</p>
+  <% else %>
+  <p>❌ This task is not completed yet!</p>
+  <% end %>
+
+  <%= link_to "back to index", root_path, class: "btn btn-primary" %>
+</div>

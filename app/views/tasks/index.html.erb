@@ -1,0 +1,19 @@
+<div class="justify-content-center">
+  <h2>My Tasks</h2>
+  <br>
+  <ul class="list-group">
+    <% @tasks.each do |task| %>
+      <li class="list-group-item">
+        <% if task. completed %>
+        <i class="fa-regular fa-square-check"></i>
+        <% else %>
+        <i class="fa-regular fa-square"></i>
+        <% end %>
+        - <%= link_to "#{task.title}", id_path(task.id) %>
+        <%= link_to raw("<i class='fa-regular fa-trash-can'></i>"), destroy_path(task.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      </li>
+    <% end %>
+  </ul>
+  <br>
+  <%= link_to "Add a new task", new_path, class: 'btn btn-primary' %>
+</div>
